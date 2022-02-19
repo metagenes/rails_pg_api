@@ -3,4 +3,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  namespace :api do
+    namespace :v1 do
+      # define single route test 
+      get 'test', to: 'users#check'
+      
+      # define multiple routes using resources
+      resources :users do 
+        resources :facts
+      end
+    end
+  end
 end
